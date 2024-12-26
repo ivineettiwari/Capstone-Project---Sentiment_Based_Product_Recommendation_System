@@ -1,0 +1,15 @@
+Flask
+Jinja2
+gunicorn
+MarkupSafe
+Werkzeug
+Cython
+nltk
+pandas
+requests
+scipy
+spacy
+numpy
+pickleshare
+chardet
+scikit-learn

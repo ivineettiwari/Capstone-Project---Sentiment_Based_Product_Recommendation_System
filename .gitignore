@@ -1,0 +1,16 @@
+venv
+venv\
+**\__pycache__
+
+\__pycache__\
+*.pyc
+
+sqlite3.exe
+debug.log
+
+logs/
+*.logs
+
+management/
+.env
+venv/
