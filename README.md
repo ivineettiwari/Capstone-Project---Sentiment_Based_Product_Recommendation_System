@@ -129,23 +129,52 @@ The final recommendation system combines predictions from collaborative filterin
 
 Run the Flask app locally by following the setup instructions above.
 
-### Heroku Deployment
+### Digital Ocean Deployment
 
-1. Install the Heroku CLI.
-2. Login to Heroku:
-   ```bash
-   heroku login
-   ```
-3. Create a new Heroku app:
-   ```bash
-   heroku create app-name
-   ```
-4. Deploy the app:
-   ```bash
-   git push heroku main
-   ```
+Here are 5 concise steps to deploy a Python Flask application on DigitalOcean:
 
-The application will be live at `https://app-name.herokuapp.com/`.
+---
+
+### **1. Set Up a Droplet**
+- Log in to your [DigitalOcean account](https://www.digitalocean.com/).
+- Create a new droplet with a preferred Linux distribution (e.g., Ubuntu 22.04).
+- Choose a size and data center region, then launch the droplet.
+- Connect to your droplet using SSH:
+  ```bash
+  ssh root@your_droplet_ip
+  ```
+
+---
+
+### **2. Install Required Software**
+- Update the system and install essential packages:
+  ```bash
+  sudo apt update && sudo apt upgrade -y
+  sudo apt install python3 python3-pip python3-venv nginx git -y
+  ```
+- Install and configure Gunicorn:
+  ```bash
+  pip3 install gunicorn
+  ```
+
+---
+
+### **3. Upload and Configure Your Flask App**
+- Clone or upload your Flask app to the droplet:
+  ```bash
+  git clone https://github.com/your-repo.git /var/www/your-app
+  cd /var/www/your-app
+  ```
+- Set up a Python virtual environment:
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  pip install -r requirements.txt
+  ```
+- Test the app with Gunicorn:
+  ```bash
+  gunicorn --bind 0.0.0.0:8000 app:app
+  ```
 
 ---
 
@@ -179,5 +208,5 @@ sentiment-based-recommendations/
 
 ## Conclusion
 
-This sentiment-based product recommendation system enhances the user experience by combining traditional collaborative filtering with sentiment analysis. By offering personalized and sentiment-aware recommendations, it improves customer satisfaction and engagement. The system is accessible through a Flask application, with live deployment on Heroku.
+This sentiment-based product recommendation system enhances the user experience by combining traditional collaborative filtering with sentiment analysis. By offering personalized and sentiment-aware recommendations, it improves customer satisfaction and engagement. The system is accessible through a Flask application, with live deployment on digital ocean.
 
